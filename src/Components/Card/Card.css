@@ -1,0 +1,87 @@
+.card-professional {
+
+min-height: 200px;
+border-radius: 2px;
+margin-bottom: 10px;
+padding: 10px;
+background-color: white;
+margin:10px;
+margin-bottom: 20px !important;
+
+}
+.card-seeking{
+    min-height: 250px;
+border-radius: 2px;
+margin-bottom: 10px;
+padding: 10px;
+background-color: white;
+margin:10px;
+margin-bottom: 20px !important;
+}
+.card-Schedule{
+    min-height: 369px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: white;
+    margin:10px;
+    margin-bottom: 20px !important;
+}
+.Header-section{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+.Yungerleit{
+    font-weight: bold;
+}
+.dropdown-toggle::after {
+display: none !important;
+background-color: transparent;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) :hover:focus {
+    cursor: pointer;
+    background-color: transparent !important;
+    color: black !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+.dropdown, .dropend, .dropstart, .dropup {
+    position: absolute !important;
+ 
+}
+.row-font {
+    font-size: 12px;
+}
+.table-header-styl{
+    color: white;
+    background-color: #536DFE;
+}
+.icon-styl{
+    margin-top: -20px;
+    margin-left: -20px;
+}
+.select{
+border: 1px solid #536DFE;
+height: 30px;
+border-radius: 5px;
+font-size: 12px;
+}
+.color-del{
+    color: red !important;
+}
+ .font-plus{
+     font-size: 19px;
+ }
+ .cursor-p{
+     cursor: pointer;
+ }

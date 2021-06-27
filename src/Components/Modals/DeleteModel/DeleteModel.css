@@ -1,0 +1,18 @@
+.text-delete{
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 12px;
+    margin-top: 5%;
+}
+.load-del{
+    background-color: transparent !important;
+    float: right;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: black !important;
+    font-size: 13px;
+    width: 100px;
+    height: 30px;  
+    border: 1px solid #536DFE !important;
+    margin-right: 20px;
+}
