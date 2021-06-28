@@ -1,6 +1,6 @@
 import React from "react";
 import "./Youngerleit.css";
-import { Modal, Button, Row, Col, Form } from "react-bootstrap";
+import { Modal, Button, Row, Col, Form ,Table} from "react-bootstrap";
 
 export default function Youngerleit(props) {
   const { show, handleClose,edit,handleEdit } = props;
@@ -87,16 +87,18 @@ export default function Youngerleit(props) {
                 <Row>               <Col md={6}>
                 <label className="start-date">Time From</label>
                 
-                  <Form.Control type="date" placeholder="Time From" className="input-model"/>
+                  <Form.Control type="time" placeholder="Time From" className="input-model"/>
 
                 </Col>
                   <Col md={6}>
                   <label className="start-date">Time To</label>
 
-                    <Form.Control type="date" placeholder="Time To" className="input-model"/>
+                    <Form.Control type="time" placeholder="Time To" className="input-model"/>
 
                   </Col>
                 </Row>
+                <label className="start-date">Note</label>
+
                 <Form.Control
                 className="input-model"
                   as="textarea"
@@ -110,7 +112,7 @@ export default function Youngerleit(props) {
             </div>
           </Col>
           <Col md={7}>
-          <h6 >Potentail Youngerleit: <span className="span-confirm">(Select to confirm)</span></h6>
+          <h6 className="left-jj">Potentail Youngerleit: <span className="span-confirm">(Select to confirm)</span></h6>
           <div className="box-model">
                 </div>
                 <div className="inner-box">
@@ -142,12 +144,48 @@ export default function Youngerleit(props) {
                   </Col>
                 </Row>
                 <button className="load-result" variant="primary">Load Result</button>{' '}
+                    <div className="table-style-card">
+                <Table responsive >
+
+          <tbody>
+            <tr className="row-font">
+              <td className="moshe-blue">Moshe Rosen</td>
+              <td>$20</td>
+              <td>ADHD,Other</td>
+              <td>Approved</td>
+              <td><button className="load-Select">Select</button></td>
+            </tr>
+            <tr className="row-font">
+              <td className="moshe-blue">Moshe Rosen</td>
+              <td>$20</td>
+              <td>ADHD,Other</td>
+              <td>Approved</td>
+              <td><button className="load-Select">Select</button></td>
+            </tr>            <tr className="row-font">
+              <td className="moshe-blue">Moshe Rosen</td>
+              <td>$20</td>
+              <td>ADHD,Other</td>
+              <td>Approved</td>
+              <td><button className="load-Select">Select</button></td>
+            </tr>
+            <tr className="row-font">
+              <td className="moshe-blue">Moshe Rosen</td>
+              <td>$20</td>
+              <td>ADHD,Other</td>
+              <td>Approved</td>
+              <td><button className="load-Select">Select</button></td>
+            </tr>
+            
+
+          </tbody>
+        </Table>
+        </div>
                 </div>
                 <button className="load-result" onClick={handleClose}>
           Save 
         </button>
                 <button className="load-result1"  onClick={handleClose}>
-          Close
+          Cancel
         </button>
 
           </Col>

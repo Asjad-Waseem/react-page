@@ -21,6 +21,14 @@
     border-radius: 4px;
     font-size: 12px;
     margin-left: 5%;
+    width: 50%;
+}
+.select-profess{
+    border: 1px solid lightgray;
+    height: 25px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 5%;
     width: 100%;
 }
 .radio-model{
@@ -55,6 +63,7 @@
 .start-date{
     font-size: 11px;
     margin-bottom: 0px;
+    padding-left: 7px;
 }
 .span-confirm{
     font-size: 12px;

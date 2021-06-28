@@ -65,7 +65,7 @@ export default function Card() {
               <td>-</td>
               <td>To catch up the Gamura</td>
               <td><FcCheckmark size={18} /></td>
-              <td>                               <DropdownButton
+              <td className="right-float">                               <DropdownButton
                 title={<BiDotsVerticalRounded size={18} className="icon-styl" />}
                 noCaret
                 id="dropdown-no-caret"

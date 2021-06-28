@@ -52,7 +52,7 @@ const handleEdit = () => {
                             <td>12:00 pm - 1:30 pm</td>
                             <td>Session</td>
                             <td>-</td>
-                            <td>
+                            <td className="right-float">
                                 <DropdownButton
                                     title={<BiDotsVerticalRounded size={18} className="icon-styl" />}
                                     noCaret

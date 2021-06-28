@@ -41,7 +41,7 @@ const handleClose = () => {
 
                             <td>to test him</td>
                             <td>ADHD</td>
-                            <td>  <DropdownButton
+                            <td className="right-float">  <DropdownButton
                                 title={<MdKeyboardArrowDown size={18} className="icon-styl" />}
                                 noCaret
                                 id="dropdown-no-caret"
@@ -58,7 +58,7 @@ const handleClose = () => {
 
                             <td>For Readin</td>
                             <td>ADHD</td>
-                            <td>  <DropdownButton
+                            <td className="right-float">  <DropdownButton
                                 title={<MdKeyboardArrowDown size={18} className="icon-styl" />}
                                 noCaret
                                 id="dropdown-no-caret"

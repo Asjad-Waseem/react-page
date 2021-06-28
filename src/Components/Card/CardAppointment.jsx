@@ -45,7 +45,7 @@ export default function CardAppointment() {
       <td>06/07/2020</td>
       <td>12:00 pm - 1:30 pm</td>
       <td>-</td>
-      <td>  <DropdownButton
+      <td className="right-float">  <DropdownButton
                                     title={<BiDotsVerticalRounded size={18} style={{ marginTop: -20 }} />}
                                     noCaret
                                     id="dropdown-no-caret"

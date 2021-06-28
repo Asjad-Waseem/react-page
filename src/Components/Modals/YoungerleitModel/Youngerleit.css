@@ -41,12 +41,12 @@
 }
 .p-model-date{
     font-size: 12px;
-    padding-top: 19%;
+    padding-top: 28% !important;
     margin-bottom: 0px;
 }
 .p-model-date1{
     font-size: 12px;
-    padding-top: 15%;
+    padding-top: 28% !important;
     margin-bottom: 0px;
     text-align: end;
     color: #536DFE;
@@ -70,6 +70,10 @@
     font-size: 12px;
     padding-bottom: 10px;
 
+}
+.left-jj{
+    padding-top: 10px;
+    font-size: 14px;
 }
 .input-model-right{
     border: none !important; 
@@ -100,4 +104,29 @@
     font-size: 13px;
     width: 100px;
     height: 30px;
+    border: 1px solid #536DFE !important;
+    margin-right: 10px;
+
+}
+.table-style-card{
+    margin-top: 15%;
+    width: 100% !important;
+    max-height: 300px;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: scroll;
+    
+}
+.load-Select{
+    background-color: transparent !important;
+    float: right;
+    margin-top: 3px;
+    border-radius: 5px;
+    color: green !important;
+    font-size: 9px;
+    height: 15px;
+    border: 1px solid #536DFE !important;
+}
+.moshe-blue{
+    text-decoration: underline;
+    color: #536DFE;
 }

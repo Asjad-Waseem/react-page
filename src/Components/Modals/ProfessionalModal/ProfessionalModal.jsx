@@ -12,7 +12,7 @@ export default function ProfessionalModal(props) {
       <Modal.Body>
         <Row>
           <Col md={5}>
-            <h6 >Add Youngerman</h6>
+            <h6 >Add professional</h6>
 
             <div className="left-model-younger">
               <div className="flex-model">
@@ -27,7 +27,7 @@ export default function ProfessionalModal(props) {
               <p className="p-chaim">Professional: <span className="bold-model">Moshe Rosen</span></p>
               <Col md={6}>
                     <label className="start-date">Professional Type</label>
-                    <select className="select-modell" >
+                    <select className="select-profess" >
                   <option value="Youngerleit">Keriah</option>
                   <option value="Sessions">Therapy</option>
                   <option value="Sessions">Other</option>
@@ -37,7 +37,7 @@ export default function ProfessionalModal(props) {
                   </Col>
                   <Col md={6}>
                     <label className="start-date">Schedule</label>
-                    <select className="select-modell" >
+                    <select className="select-profess" >
                   <option value="Youngerleit">Weekly</option>
                   <option value="Sessions">Monthly</option>
                   <option value="Sessions">Custom</option>

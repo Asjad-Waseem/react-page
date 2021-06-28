@@ -67,7 +67,7 @@ export default function CardProfessionals() {
                             <td>-</td>
                             <td>For Keriah</td>
                             <td><FcCheckmark size={18} /></td>
-                            <td>                               <DropdownButton
+                            <td className="right-float">                               <DropdownButton
                                 title={<BiDotsVerticalRounded size={18} className="icon-styl" />}
                                 noCaret
                                 id="dropdown-no-caret"
