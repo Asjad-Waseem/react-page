@@ -1,13 +1,70 @@
-import React from "react";
+import React from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import "./Card.css";
-import { Table, DropdownButton, Dropdown } from "react-bootstrap";
 import { FcCheckmark } from "react-icons/fc";
-import { BiDotsVerticalRounded } from "react-icons/bi";
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Grow from '@material-ui/core/Grow';
+import Popper from '@material-ui/core/Popper';
+import MenuList from '@material-ui/core/MenuList';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import Youngerleit from '../Modals/YoungerleitModel/Youngerleit';
 import DeleteModel from '../Modals/DeleteModel/DeleteModel';
 import EndSchedule from '../Modals/EndSchedule/EndSchedule';
+const ITEM_HEIGHT = 48;
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: '#536DFE',
+    color: theme.palette.common.white,
+    lineHeight: '0.4rem',
+    fontSize: 12
+  },
+}))(TableCell);
 
-export default function Card() {
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    fontSize: 12,
+
+  },
+}))(TableCell);
+
+function createData(Time, Youngerman, Schedule, StartDate, EndDate, Note, Matura) {
+  return { Time, Youngerman, Schedule, StartDate, EndDate, Note, Matura };
+}
+const rows = [
+  createData('12:00 pm - 1:30 pm', "Chaim Weiss", "Sun - Thurs", "06/07/2020", "-", "To catch up", ""),
+
+];
+const useStyles = makeStyles({
+  table: {
+    backgroundColor: '#536DFE',
+  },
+  font: {
+    color: 'white'
+  }
+});
+export default function CustomizedTables() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose1 = () => {
+    setAnchorEl(null);
+  };
+  const classes = useStyles();
   const [show, setshow] = React.useState(false);
   const handleClose = () => {
     setshow(false);
@@ -15,17 +72,33 @@ export default function Card() {
   const [del, setdel] = React.useState(false);
   const handleDelete = () => {
     setdel(false);
+
+  }
+  const handleDeleteOpen = () => {
+    setdel(true);
+    setAnchorEl(null);
+
   }
   const [end, setend] = React.useState(false);
   const handleEnd = () => {
     setend(false);
   }
+  const handleEndOpen = () => {
+    setend(true);
+    setAnchorEl(null);
+
+  }
   const [edit, setedit] = React.useState(false);
   const handleEdit = () => {
     setedit(false);
   }
+  const handleEditOpen = () => {
+    setedit(true);
+    setAnchorEl(null);
+
+  }
   return (
-    <React.Fragment>
+    <>
       <Youngerleit
         show={show}
         edit={edit}
@@ -37,50 +110,71 @@ export default function Card() {
       <EndSchedule
         end={end}
         handleEnd={handleEnd} />
-      <div className="card-professional">
+      <TableContainer component={Paper} className="card-professional" responsive>
+
         <div className="Header-section">
           <p className="Yungerleit">Yungerleit</p>
-          <p className="cursor-p" onClick={() => setshow(true)}><span className="font-plus">+</span> Add</p>
+          <p className="cursor-p" onClick={() => setshow(true)} ><span className="font-plus">+</span> Add</p>
         </div>
-        <Table responsive>
-          <thead className="table-header-styl">
-            <tr className="row-font">
-              <th>Time</th>
-              <th>Youngerman</th>
-              <th>Schedule</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Note</th>
-              <th></th>
-              <th></th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="row-font">
-              <td>12:00 pm - 1:30 pm</td>
-              <td>Chaim Weiss</td>
-              <td>Sun - Thurs</td>
-              <td>06/07/2020</td>
-              <td>-</td>
-              <td>To catch up the Gamura</td>
-              <td><FcCheckmark size={18} /></td>
-              <td className="right-float">                               <DropdownButton
-                title={<BiDotsVerticalRounded size={18} className="icon-styl" />}
-                noCaret
-                id="dropdown-no-caret"
-              >
-                <Dropdown.Item eventKey="1" onClick={() => setedit(true)}>Edit</Dropdown.Item>
-                <Dropdown.Item eventKey="1" onClick={() => setend(true)}>End Schedule</Dropdown.Item>
-                <Dropdown.Item eventKey="2" className="color-del" onClick={() => setdel(true)}> Delete </Dropdown.Item>
-              </DropdownButton></td>
-
-            </tr>
-
-          </tbody>
+        <Table aria-label="simple table">
+          <TableHead className={classes.table}>
+            <TableRow >
+              <StyledTableCell >Time</StyledTableCell>
+              <StyledTableCell >Youngerman</StyledTableCell>
+              <StyledTableCell >Schedule</StyledTableCell>
+              <StyledTableCell >StartDate</StyledTableCell>
+              <StyledTableCell >EndDate</StyledTableCell>
+              <StyledTableCell >Note</StyledTableCell>
+              <StyledTableCell >Matura</StyledTableCell>
+              <StyledTableCell ></StyledTableCell>
+              <StyledTableCell ></StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.Time} >
+                <StyledTableRow component="th" scope="row">
+                  {row.Time}
+                </StyledTableRow>
+                <StyledTableRow >{row.Youngerman}</StyledTableRow>
+                <StyledTableRow >{row.Schedule}</StyledTableRow>
+                <StyledTableRow >{row.StartDate}</StyledTableRow>
+                <StyledTableRow align="center">{row.EndDate}</StyledTableRow>
+                <StyledTableRow>{row.Note}</StyledTableRow>
+                <StyledTableRow >{row.Matura}</StyledTableRow>
+                <StyledTableRow ><FcCheckmark size={18} /></StyledTableRow>
+                <StyledTableRow >
+                  <IconButton
+                    aria-label="more"
+                    aria-controls="long-menu"
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                  >
+                    <MoreVertIcon />
+                  </IconButton>
+                  <Menu
+                    id="long-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={open}
+                    onClose={handleClose1}
+                    PaperProps={{
+                      style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: '20ch',
+                      },
+                    }}
+                  >
+                    <MenuItem onClick={handleEditOpen}>Edit  </MenuItem>
+                    <MenuItem onClick={handleEndOpen}>End Schedule  </MenuItem>
+                    <MenuItem className="color-del" onClick={handleDeleteOpen}>Delete  </MenuItem>
+                  </Menu>
+                </StyledTableRow>
+              </TableRow>
+            ))}
+          </TableBody>
         </Table>
-      </div>
-    </React.Fragment>
+      </TableContainer>
+    </>
   );
 }
-

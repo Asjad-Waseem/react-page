@@ -1,9 +1,7 @@
 import React from "react";
-import "./MainSection.css";
-import {Row,Col } from "react-bootstrap";
+import Grid from '@material-ui/core/Grid';
 import Card from '../Card/Card';
 import CardProfessionals from '../Card/CardProfessionals';
-
 import CardAppointment from '../Card/CardAppointment'
 import CardSeeking from '../Card/CardSeeking'
 import CardSchedule from '../Card/CardSchedule'
@@ -12,19 +10,18 @@ export default function MainSection() {
 
   return (
     <React.Fragment>
-      <div>
-      <Row>
-        <Col md ={7}>
+     
+      <Grid container spacing={3} style={{padding:10}}>
+        <Grid item md ={7}>
         <Card/>
         <CardProfessionals/>
         <CardAppointment/>
-        </Col>
-        <Col md ={5}>
+        </Grid>
+        <Grid item md ={5}>
         <CardSeeking/>
         <CardSchedule/>
-        </Col>
-      </Row>
-        </div>
+        </Grid>
+      </Grid>
     </React.Fragment>
   );
 }

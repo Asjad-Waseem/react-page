@@ -12,8 +12,7 @@
 }
 .p-chaim{
     font-size: 12px;
-    padding: 0px !important;
-    margin:5px
+
 }
 .select-modell{
     border: 1px solid lightgray;
@@ -86,26 +85,31 @@
     margin-top: 20px;
 }
 .load-result{
-    background-color: #536DFE !important;
+    background-color: #3F51B5 !important;
     float: right;
-    margin-top: 20px;
+    margin-top: 30px;
     border-radius: 5px;
     color: white !important;
     font-size: 13px;
     width: 100px;
     height: 30px;
+    border: none;
+    margin-right: 20px !important;
+    margin-bottom: 20px !important;
+
 }
 .load-result1{
     background-color: transparent !important;
     float: right;
-    margin-top: 20px;
+    margin-top: 30px;
     border-radius: 5px;
     color: black !important;
     font-size: 13px;
     width: 100px;
     height: 30px;
-    border: 1px solid #536DFE !important;
-    margin-right: 10px;
+    border: 1px solid #3F51B5 !important;
+    margin-right: 10px !important;
+    margin-bottom: 20px !important;
 
 }
 .table-style-card{

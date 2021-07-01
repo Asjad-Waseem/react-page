@@ -1,65 +1,146 @@
-import React from "react";
+import React from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import "./Card.css";
-import {Table, DropdownButton,Dropdown} from "react-bootstrap";
-import { FcCheckmark } from "react-icons/fc";
-import { BiDotsVerticalRounded } from "react-icons/bi";
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import Appointment from '../Modals/Appointment/Appointment'
 import DeleteModel from '../Modals/DeleteModel/DeleteModel'
 
-export default function CardAppointment() {
-  const [show , setshow] = React.useState(false);
+const ITEM_HEIGHT = 48;
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: '#536DFE',
+    color: theme.palette.common.white,
+    lineHeight: '0.4rem',
+    fontSize: 12
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    fontSize: 12,
+
+  },
+}))(TableCell);
+
+function createData(Professional, StartDate, Time, Note, ) {
+  return { Professional, StartDate, Time, Note, };
+}
+const rows = [
+  createData( "Chaim Weiss", "06/07/2020",'12:00 pm - 1:30 pm', "-", ),
+
+];
+const useStyles = makeStyles({
+  table: {
+    backgroundColor: '#536DFE',
+  },
+  font: {
+    color: 'white'
+  }
+});
+export default function CustomizedTables() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose1 = () => {
+    setAnchorEl(null);
+  };
+  const classes = useStyles();
+  const [show, setshow] = React.useState(false);
   const handleClose = () => {
-      setshow(false);
+    setshow(false);
   }
   const [del, setdel] = React.useState(false);
   const handleDelete = () => {
-      setdel(false);
+    setdel(false);
   }
-    return (
-        <React.Fragment>
-                          <Appointment
-                show={show}
-                handleClose={handleClose}/>
-                 <DeleteModel
-                del={del}
-                handleDelete={handleDelete} />
-            <div className="card-professional">
-                <div className="Header-section">
-                    <p className="Yungerleit">Appointments</p>
-                    <p className="cursor-p" onClick={() => setshow(true)}><span className="font-plus">+</span> Add</p>
-                </div>
-                <Table responsive>
-  <thead className="table-header-styl">
-    <tr className="row-font">
-      <th>Professional</th>
-      <th>Start Date</th>
-      <th>Time</th>
-      <th>Note</th>
-      <th></th>
+  const handleDeleteOpen = () => {
+    setdel(true);
+    setAnchorEl(null);
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr  className="row-font">
-      <td>Chaim Weiss</td>
-      <td>06/07/2020</td>
-      <td>12:00 pm - 1:30 pm</td>
-      <td>-</td>
-      <td className="right-float">  <DropdownButton
-                                    title={<BiDotsVerticalRounded size={18} style={{ marginTop: -20 }} />}
-                                    noCaret
-                                    id="dropdown-no-caret"
-                                >
-                                    <Dropdown.Item eventKey="1" onClick={()=> setshow(true)}> Edit</Dropdown.Item>
-                                    <Dropdown.Item eventKey="2" className="color-del" onClick={()=> setdel(true)}> Delete </Dropdown.Item>
-                                </DropdownButton></td>
+  }
+  const showOpen = () => {
+    setshow(true)
+    setAnchorEl(null);
 
-    </tr>
+  }
+  return (
+    <>
+      <Appointment
+        show={show}
+        handleClose={handleClose} />
+      <DeleteModel
+        del={del}
+        handleDelete={handleDelete} />
+      <TableContainer component={Paper} className="card-professional" responsive>
 
-  </tbody>
-</Table>
-            </div>
-        </React.Fragment>
-    );
+        <div className="Header-section">
+          <p className="Yungerleit">Appointments</p>
+          <p className="cursor-p" onClick={() => setshow(true)} ><span className="font-plus">+</span> Add</p>
+        </div>
+        <Table aria-label="simple table">
+          <TableHead className={classes.table}>
+            <TableRow >
+              <StyledTableCell >Professional</StyledTableCell>
+              <StyledTableCell >Start Date</StyledTableCell>
+              <StyledTableCell >Time</StyledTableCell>
+              <StyledTableCell >Note</StyledTableCell>
+              <StyledTableCell ></StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.Time} >
+                <StyledTableRow >{row.Professional}</StyledTableRow>
+                <StyledTableRow >{row.StartDate}</StyledTableRow>
+                <StyledTableRow >
+                  {row.Time}
+                </StyledTableRow>
+                <StyledTableRow>{row.Note}</StyledTableRow>
+                <StyledTableRow align="right" >
+                  <IconButton
+                    aria-label="more"
+                    aria-controls="long-menu"
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                  >
+                    <MoreVertIcon />
+                  </IconButton>
+                  <Menu
+                    id="long-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={open}
+                    onClose={handleClose1}
+                    PaperProps={{
+                      style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: '20ch',
+                      },
+                    }}
+                  >
+                    <MenuItem onClick={showOpen}>Edit  </MenuItem>
+                    <MenuItem className="color-del" onClick={handleDeleteOpen}>Delete  </MenuItem>
+
+                  </Menu>
+                </StyledTableRow>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
+  );
 }
-
