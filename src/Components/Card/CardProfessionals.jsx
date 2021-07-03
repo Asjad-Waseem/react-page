@@ -117,9 +117,9 @@ export default function CustomizedTables() {
                             <StyledTableCell >Time</StyledTableCell>
                             <StyledTableCell >Professional</StyledTableCell>
                             <StyledTableCell >Schedule</StyledTableCell>
-                            <StyledTableCell >Next appt.</StyledTableCell>
-                            <StyledTableCell >Start Date</StyledTableCell>
-                            <StyledTableCell >End Date</StyledTableCell>
+                            <StyledTableCell >Nextappt.</StyledTableCell>
+                            <StyledTableCell >StartDate</StyledTableCell>
+                            <StyledTableCell >EndDate</StyledTableCell>
                             <StyledTableCell >Note</StyledTableCell>
                             <StyledTableCell ></StyledTableCell>
                             <StyledTableCell ></StyledTableCell>

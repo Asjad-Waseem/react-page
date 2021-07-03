@@ -22,7 +22,7 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: '100%',
-    marginTop: '20px',
+    marginTop: '25px',
     padding: 10
   },
 }));
@@ -55,8 +55,8 @@ export default function Youngerleit(props) {
       <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={show} maxWidth="md" fullWidth={true}>
         <DialogContent>
           <Grid container spacing={3}>
-            <Grid md={5}>
-              <h6 >Add Youngerman</h6>
+            <Grid md={5} xs={12}>
+              <h4 >Add Youngerman</h4>
 
               <div className="left-model-younger">
                 <div className="flex-model">
@@ -69,7 +69,7 @@ export default function Youngerleit(props) {
                     variant="outlined"
                     size="small"
                     onChange={(event) => setCurrency(event.target.value)}
-                    style={{ width: '55%', marginLeft: 20, fontSize: 9 }}
+                    className="Status"
                   >
                     <MenuItem value="Pending Youngerman">Pending Youngerman </MenuItem>
                     <MenuItem value="Pending Financial ">Pending Financial </MenuItem>
@@ -111,7 +111,7 @@ export default function Youngerleit(props) {
                 <div className="box-model">
                 </div>
                 <Grid container spacing={0}>
-                  <Grid md={6}>
+                  <Grid md={6} xs={6}>
                     <TextField
                       id="outlined-required"
                       label="Rate"
@@ -120,12 +120,12 @@ export default function Youngerleit(props) {
                       size="small"
                     />
                   </Grid>
-                  <Grid md={6}>
+                  <Grid md={6} xs={6}>
                     <p className="p-model-date"> Reg. Rate: $20</p>
                   </Grid>
                 </Grid>
-                <Grid container spacing={0} style={{ marginTop: 20 }}>
-                  <Grid md={6}>
+                <Grid container spacing={0} className="date-padding-box">
+                  <Grid md={6} xs={6}>
                     <TextField
                       id="date"
                       label="Start Date"
@@ -133,17 +133,17 @@ export default function Youngerleit(props) {
                       variant="outlined"
                       size="small"
                       type="date"
-                      style={{ width: '100%', }}
+                      className="date-width"
 
                     />
 
                   </Grid>
-                  <Grid md={6}>
+                  <Grid md={6} xs={6}>
                     <p className="p-model-date1">Add End Date</p>
 
                   </Grid>
                 </Grid>
-                <Grid container spacing={0} style={{ marginTop: 20, }}>
+                <Grid container spacing={0} className="date-padding-box">
                   <Grid md={6}>
                     <TextField
                       id="time"
@@ -152,7 +152,7 @@ export default function Youngerleit(props) {
                       defaultValue="07:30"
                       variant="outlined"
                       size="small"
-                      style={{ width: '100%', }}
+                      className="date-width"
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -169,7 +169,7 @@ export default function Youngerleit(props) {
                       variant="outlined"
                       size="small"
                       type="time"
-                      style={{ width: '96%', marginLeft: '4%' }}
+                      className="time-to"
 
                     />
                   </Grid>
@@ -182,7 +182,7 @@ export default function Youngerleit(props) {
 
               </div>
             </Grid>
-            <Grid md={7}>
+            <Grid md={7} xs={12}>
               <h6 className="left-jj">Potentail Youngerleit: <span className="span-confirm">(Select to confirm)</span></h6>
               <div className="box-model">
               </div>
@@ -192,32 +192,32 @@ export default function Youngerleit(props) {
 
                 <Grid container spacing={0}>
 
-                  <Grid md={6}>
-                    <TextField id="standard-basic" label="Rate To" />
+                  <Grid md={6} >
+                    <TextField id="standard-basic" label="Rate From" />
 
                   </Grid>
                   <Grid md={6}>
-                    <TextField id="standard-basic" label="Rate To" style={{ float: 'right' }} />
+                    <TextField id="standard-basic" label="Rate To" className="rate-to" />
                   </Grid>
                 </Grid>
                 <Grid container spacing={0}>
 
-                  <Grid md={6}>
+                  <Grid md={6} xs={12}>
                     <TextField
                       id="standard"
                       select
                       label="Boro Park"
-                      style={{ width: '76%' }}
+                      className="boro-park"
                     >
                       <MenuItem ></MenuItem>
                     </TextField>
                   </Grid>
-                  <Grid md={6}>
+                  <Grid md={6} xs={12}>
                     <TextField
                       id="standard"
                       select
                       label="Specialities"
-                      style={{ width: '76%', float: 'right' }}
+                      className="Specialities"
                     >
                       <MenuItem >
                       </MenuItem>
@@ -233,7 +233,7 @@ export default function Youngerleit(props) {
                       <TableBody>
                         {rows.map((row) => (
                           <TableRow key={row.Time} >
-                            <StyledTableRow component="th" scope="row" style={{ color: 'blue', textDecoration: 'underline' }}>
+                            <StyledTableRow component="th" scope="row" className="first-row" >
                               {row.Time}
                             </StyledTableRow>
                             <StyledTableRow >{row.Youngerman}</StyledTableRow>
@@ -253,7 +253,7 @@ export default function Youngerleit(props) {
             </Grid>
           </Grid>
         </DialogContent>
-        <DialogActions style={{ marginRight: 10 }}>
+        <DialogActions className="action-button">
           <Button className="load-result1" onClick={handleClose}>Cancel</Button>
 
           <Button className="load-result" onClick={handleClose}>
@@ -278,8 +278,8 @@ export default function Youngerleit(props) {
                 variant="outlined"
                 size="small"
                 onChange={(event) => setCurrency(event.target.value)}
-                style={{ width: '55%', marginLeft: 20, fontSize: 9 }}
-              >
+                className="Status"
+                >
                 <MenuItem value="Pending Youngerman">Pending Youngerman </MenuItem>
                 <MenuItem value="Pending Financial ">Pending Financial </MenuItem>
                 <MenuItem value="Active">Active </MenuItem>
@@ -320,7 +320,7 @@ export default function Youngerleit(props) {
             <div className="box-model">
             </div>
             <Grid container spacing={0}>
-              <Grid md={6}>
+              <Grid md={6}  xs={6}>
                 <TextField
                   id="outlined-required"
                   label="Rate"
@@ -329,12 +329,12 @@ export default function Youngerleit(props) {
                   size="small"
                 />
               </Grid>
-              <Grid md={6}>
+              <Grid md={6}  xs={6}>
                 <p className="p-model-date"> Reg. Rate: $20</p>
               </Grid>
             </Grid>
-            <Grid container spacing={0} style={{ marginTop: 20 }}>
-              <Grid md={6}>
+            <Grid container spacing={0} className="date-padding-box">
+              <Grid md={6}  xs={6}>
                 <TextField
                   id="date"
                   label="Start Date"
@@ -342,17 +342,17 @@ export default function Youngerleit(props) {
                   variant="outlined"
                   size="small"
                   type="date"
-                  style={{ width: '100%', }}
+                  className="date-width"
 
                 />
 
               </Grid>
-              <Grid md={6}>
+              <Grid md={6}  xs={6}>
                 <p className="p-model-date1">Add End Date</p>
 
               </Grid>
             </Grid>
-            <Grid container spacing={0} style={{ marginTop: 20, }}>
+            <Grid container spacing={0} className="date-padding-box">
               <Grid md={6}>
                 <TextField
                   id="time"
@@ -361,7 +361,7 @@ export default function Youngerleit(props) {
                   defaultValue="07:30"
                   variant="outlined"
                   size="small"
-                  style={{ width: '100%', }}
+                  className="date-width"
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -378,7 +378,7 @@ export default function Youngerleit(props) {
                   variant="outlined"
                   size="small"
                   type="time"
-                  style={{ width: '96%', marginLeft: '4%' }}
+                  className="time-to"
 
                 />
               </Grid>
@@ -392,7 +392,7 @@ export default function Youngerleit(props) {
           </div>
 
         </DialogContent>
-        <DialogActions style={{ marginRight: 10 }}>
+        <DialogActions className="action-button">
           <Button className="load-result1" onClick={handleEdit}>Cancel</Button>
 
           <Button className="load-result" onClick={handleEdit}>

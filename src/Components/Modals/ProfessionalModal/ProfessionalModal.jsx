@@ -5,7 +5,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
 import DialogActions from '@material-ui/core/DialogActions';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import TextField from '@material-ui/core/TextField';
@@ -14,7 +14,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: '100%',
-    marginTop: '20px',
+    marginTop: '25px',
     padding: 10
   },
 }));
@@ -32,8 +32,8 @@ export default function ProfessionalModal(props) {
       <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={show} maxWidth="md" fullWidth={true}>
         <DialogContent>
         <Grid  container spacing={1}>
-          <Grid md={5}>
-            <h6 >Add professional</h6>
+          <Grid md={5} xs= {12}>  
+            <h4 >Add professional</h4>
 
             <div className="left-model-younger">
             <div className="flex-model">
@@ -46,7 +46,8 @@ export default function ProfessionalModal(props) {
                     variant="outlined"
                     size="small"
                     onChange={(event) => setCurrency(event.target.value)}
-                    style={{ width: '55%', marginLeft: 35, fontSize: 9 }}
+                    className="Status"
+                  
                   >
                     <MenuItem value="Pending Professional">Pending Youngerman </MenuItem>
                     <MenuItem value="Pending Financial ">Pending Financial </MenuItem>
@@ -64,7 +65,7 @@ export default function ProfessionalModal(props) {
                     variant="outlined"
                     size="small"
                     onChange={(event) => setCurrency1(event.target.value)}
-                    style={{ width: '100%',marginTop:20}}
+                    className="Type-professional"
                   >
                     <MenuItem value="Keriah" selected>Keriah</MenuItem>
                     <MenuItem value="Therapy">Therapy </MenuItem>
@@ -81,7 +82,7 @@ export default function ProfessionalModal(props) {
                     variant="outlined"
                     size="small"
                     onChange={(event) => setCurrency2(event.target.value)}
-                    style={{ width: '100%',marginTop:20}}
+                    className="Type-professional"
                   >
                     <MenuItem value="Weekly" selected>Weekly</MenuItem>
                     <MenuItem value="Monthly">Monthly </MenuItem>
@@ -90,10 +91,18 @@ export default function ProfessionalModal(props) {
                   </TextField>
 
                   </Grid>
-                <div className="box-model">
+                <div className="box-model-table">
+                <p className="sunday">Sunday</p>
+                <p className="sunday">Monday</p>
+                <p className="sunday">Tuesday</p>
+                <p className="sunday">Wednesday</p>
+                <p className="sunday">Thursday</p>
+                <p className="sunday">Friday</p>
+                <p className="saturday">Saturday</p>
+
                 </div>
-                <Grid container spacing={0} style={{ marginTop: 20 }}>
-                  <Grid md={6}>
+                <Grid container spacing={0} className="date-padding-box" >
+                  <Grid md={6} xs={6}>
                     <TextField
                       id="date"
                       label="Start Date"
@@ -101,17 +110,17 @@ export default function ProfessionalModal(props) {
                       variant="outlined"
                       size="small"
                       type="date"
-                      style={{ width: '100%', }}
+                      className="date-width"
 
                     />
 
                   </Grid>
-                  <Grid md={6}>
+                  <Grid md={6} xs={6}>
                     <p className="p-model-date1">Add End Date</p>
 
                   </Grid>
                 </Grid>
-                <Grid container spacing={0} style={{ marginTop: 20, }}>
+                <Grid container spacing={0} className="date-padding-box" >
                   <Grid md={6}>
                     <TextField
                       id="time"
@@ -120,7 +129,7 @@ export default function ProfessionalModal(props) {
                       defaultValue="07:30"
                       variant="outlined"
                       size="small"
-                      style={{ width: '100%', }}
+                      className="date-width"
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -137,7 +146,7 @@ export default function ProfessionalModal(props) {
                       variant="outlined"
                       size="small"
                       type="time"
-                      style={{ width: '96%', marginLeft: '4%' }}
+                      className="time-to"
 
                     />
                   </Grid>
@@ -148,7 +157,7 @@ export default function ProfessionalModal(props) {
                 </FormControl>
             </div>
           </Grid>
-          <Grid md={7}>
+          <Grid md={7} xs={12}>
             <h6 className="selected-prof">Selected Professional</h6>
             <div className="box-model">
             </div>
@@ -160,7 +169,7 @@ export default function ProfessionalModal(props) {
           </Grid>
         </Grid>
       </DialogContent>
-      <DialogActions style={{marginRight:10}}>
+      <DialogActions className="action-button">
             <Button className="load-result1" onClick={handleClose}>Cancel</Button>
 
             <Button className="load-result"  onClick={handleClose}>
@@ -185,7 +194,7 @@ export default function ProfessionalModal(props) {
                     variant="outlined"
                     size="small"
                     onChange={(event) => setCurrency(event.target.value)}
-                    style={{ width: '55%', marginLeft: 35, fontSize: 9 }}
+                    className="Status"
                   >
                     <MenuItem value="Pending Professional">Pending Youngerman </MenuItem>
                     <MenuItem value="Pending Financial ">Pending Financial </MenuItem>
@@ -203,7 +212,7 @@ export default function ProfessionalModal(props) {
                     variant="outlined"
                     size="small"
                     onChange={(event) => setCurrency1(event.target.value)}
-                    style={{ width: '100%',marginTop:20}}
+                    className="Type-professional"
                   >
                     <MenuItem value="Keriah" selected>Keriah</MenuItem>
                     <MenuItem value="Therapy">Therapy </MenuItem>
@@ -220,7 +229,7 @@ export default function ProfessionalModal(props) {
                     variant="outlined"
                     size="small"
                     onChange={(event) => setCurrency2(event.target.value)}
-                    style={{ width: '100%',marginTop:20}}
+                    className="Type-professional"
                   >
                     <MenuItem value="Weekly" selected>Weekly</MenuItem>
                     <MenuItem value="Monthly">Monthly </MenuItem>
@@ -231,7 +240,7 @@ export default function ProfessionalModal(props) {
                   </Grid>
                 <div className="box-model">
                 </div>
-                <Grid container spacing={0} style={{ marginTop: 20 }}>
+                <Grid container spacing={0} className="date-padding-box">
                   <Grid md={6}>
                     <TextField
                       id="date"
@@ -240,7 +249,7 @@ export default function ProfessionalModal(props) {
                       variant="outlined"
                       size="small"
                       type="date"
-                      style={{ width: '100%', }}
+                      className="date-width"
 
                     />
 
@@ -250,7 +259,7 @@ export default function ProfessionalModal(props) {
 
                   </Grid>
                 </Grid>
-                <Grid container spacing={0} style={{ marginTop: 20, }}>
+                <Grid container spacing={0} className="date-padding-box">
                   <Grid md={6}>
                     <TextField
                       id="time"
@@ -259,7 +268,7 @@ export default function ProfessionalModal(props) {
                       defaultValue="07:30"
                       variant="outlined"
                       size="small"
-                      style={{ width: '100%', }}
+                      className="date-width"
                       InputLabelProps={{
                         shrink: true,
                       }}
@@ -276,7 +285,7 @@ export default function ProfessionalModal(props) {
                       variant="outlined"
                       size="small"
                       type="time"
-                      style={{ width: '96%', marginLeft: '4%' }}
+                      className="time-to"
 
                     />
                   </Grid>
@@ -288,7 +297,7 @@ export default function ProfessionalModal(props) {
             </div>
  
       </DialogContent>
-      <DialogActions style={{marginRight:10}}>
+      <DialogActions className="action-button">
             <Button className="load-result1" onClick={handleEdit}>Cancel</Button>
 
             <Button className="load-result"  onClick={handleEdit}>

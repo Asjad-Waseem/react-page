@@ -14,7 +14,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 const useStyles = makeStyles((theme) => ({
     formControl: {
         minWidth: '100%',
-        marginTop: '20px',
+        marginTop: '25px',
         padding: 10
     },
 }));

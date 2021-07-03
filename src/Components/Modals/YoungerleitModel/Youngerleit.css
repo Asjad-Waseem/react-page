@@ -125,6 +125,10 @@ overflow-y: scroll;
     margin-bottom: 20px !important;
 
 }
+.Specialities{
+    width: 76% !important;
+    float: right !important;
+}
 .load-result1{
     background-color: transparent !important;
     float: right;
@@ -182,3 +186,18 @@ overflow-y: scroll;
     text-decoration: underline;
     color: #536DFE;
 }
+.boro-park {
+    width: 76% !important;
+}
+.rate-to{
+    float: right !important;
+}
+.first-row {
+    color: blue !important;
+    text-decoration: underline;
+}
+@media screen and (max-width: 700px) {
+    .Specialities{
+        float: left !important;
+    }
+  }
