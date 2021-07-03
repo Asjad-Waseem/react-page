@@ -121,3 +121,27 @@
     width: 100px;
     height: 30px;
 }
+.selected-prof{
+    padding:30px;
+    font-size: 15px;
+}
+.inner-box-professional{
+    border: 1px solid #DADEF0;
+    border-radius: 5px;
+    height: 380px !important;
+    padding: 20px !important;
+    margin:12px;
+}
+.load-result-Professional{
+    background-color: #3F51B5 !important;
+    float: right;
+    margin-top: -5% !important;
+    border-radius: 5px;
+    color: white !important;
+    font-size: 11px !important;
+    width: 100px;
+    height: 30px;
+    border: none;
+    margin-bottom: 20px !important;
+    margin-right: 10px !important;
+}

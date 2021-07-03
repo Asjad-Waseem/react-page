@@ -30,7 +30,7 @@
     padding: 5px;
 }
 .box-model{
-    min-height: 200px;
+    min-height: 170px !important;
     background-color: white;
 }
 .input-model{
@@ -40,19 +40,20 @@
 }
 .p-model-date{
     font-size: 12px;
-    padding-top: 28% !important;
-    margin-bottom: 0px;
+    padding-top: 10% !important;
+    margin-left: 10%;
 }
 .p-model-date1{
     font-size: 12px;
-    padding-top: 28% !important;
+    padding-top: 10% !important;
     margin-bottom: 0px;
     text-align: end;
     color: #536DFE;
 }
 .start-date{
-    font-size: 11px;
+    font-size: 14px !important;
     margin-bottom: 0px;
+    margin-left: -5px;
 }
 .span-confirm{
     font-size: 12px;
@@ -60,8 +61,9 @@
 .inner-box {
     border: 1px solid #DADEF0;
     border-radius: 5px;
-    height: 400px;
-    padding: 10px;
+    height: 450px !important;
+    padding: 20px !important;
+    margin:10px;
 
 }
 .available{
@@ -70,9 +72,21 @@
     padding-bottom: 10px;
 
 }
+.select-button{
+    height: 20px !important;
+    background-color: transparent;
+    font-size: 8px !important;
+    border: 1px solid green !important;
+}
 .left-jj{
-    padding-top: 10px;
+    padding: 10px;
     font-size: 14px;
+}
+.card-results {
+    max-height: 190px;
+    min-height: 190px;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+overflow-y: scroll;
 }
 .input-model-right{
     border: none !important; 
@@ -90,11 +104,24 @@
     margin-top: 30px;
     border-radius: 5px;
     color: white !important;
-    font-size: 13px;
+    font-size: 11px !important;
     width: 100px;
     height: 30px;
     border: none;
     margin-right: 20px !important;
+    margin-bottom: 20px !important;
+
+}
+.load-result-youngerman {
+    background-color: #3F51B5 !important;
+    float: right;
+    margin-top: 5% !important;
+    border-radius: 5px;
+    color: white !important;
+    font-size: 11px !important;
+    width: 100px;
+    height: 30px;
+    border: none;
     margin-bottom: 20px !important;
 
 }
@@ -104,13 +131,34 @@
     margin-top: 30px;
     border-radius: 5px;
     color: black !important;
-    font-size: 13px;
+    font-size: 11px !important;
     width: 100px;
     height: 30px;
     border: 1px solid #3F51B5 !important;
     margin-right: 10px !important;
     margin-bottom: 20px !important;
 
+}
+.MuiTypography-body1 {
+    font-size: 0.8rem !important;
+
+}
+.date-end-schedule{
+    text-align: center;
+    margin-top: 5% !important;
+}
+.load-result-schedule{
+    background-color: #3F51B5 !important;
+    float: right;
+    margin-top: 30px;
+    border-radius: 5px;
+    color: white !important;
+    font-size: 11px !important;
+    width: 130px;
+    height: 30px;
+    border: none;
+    margin-right: 20px !important;
+    margin-bottom: 20px !important;
 }
 .table-style-card{
     margin-top: 15%;

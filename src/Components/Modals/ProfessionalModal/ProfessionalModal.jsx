@@ -1,217 +1,303 @@
 import React from "react";
 import "./ProfessionalModal.css";
-import { Modal, Button, Row, Col, Form } from "react-bootstrap";
+import Grid from '@material-ui/core/Grid';
+import DialogContent from '@material-ui/core/DialogContent';
+import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button';
+import DialogActions from '@material-ui/core/DialogActions';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import FormControl from '@material-ui/core/FormControl';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
 
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    minWidth: '100%',
+    marginTop: '20px',
+    padding: 10
+  },
+}));
 export default function ProfessionalModal(props) {
   const { show, handleClose,handleEdit,edit } = props;
+  const classes = useStyles();
+
+  const [currency, setCurrency] = React.useState('Active');
+  const [currency1, setCurrency1] = React.useState('Keriah');
+
+  const [currency2, setCurrency2] = React.useState('Weekly');
+
   return (
 <>
-
-    <Modal size="lg" show={show} onHide={handleClose} centered>
-
-      <Modal.Body>
-        <Row>
-          <Col md={5}>
+      <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={show} maxWidth="md" fullWidth={true}>
+        <DialogContent>
+        <Grid  container spacing={1}>
+          <Grid md={5}>
             <h6 >Add professional</h6>
 
             <div className="left-model-younger">
-              <div className="flex-model">
-                <p className="p-chaim">Bucher: <span className="bold-model">Chaim Green</span></p>
-                <select className="select-modell" >
-                  <option value="Youngerleit">Pending Professional</option>
-                  <option value="Sessions">Pending Financial</option>
-                  <option value="Sessions">Active</option>
+            <div className="flex-model">
+                  <p className="p-chaim">Bucher: <span className="bold-model">Chaim Green</span></p>
+                  <TextField
+                    id="outlined"
+                    value={currency}
+                    select
+                    label="Status"
+                    variant="outlined"
+                    size="small"
+                    onChange={(event) => setCurrency(event.target.value)}
+                    style={{ width: '55%', marginLeft: 35, fontSize: 9 }}
+                  >
+                    <MenuItem value="Pending Professional">Pending Youngerman </MenuItem>
+                    <MenuItem value="Pending Financial ">Pending Financial </MenuItem>
+                    <MenuItem value="Active">Active </MenuItem>
 
-                </select>
-              </div>
+                  </TextField>
+                </div>
               <p className="p-chaim">Professional: <span className="bold-model">Moshe Rosen</span></p>
-              <Col md={6}>
-                    <label className="start-date">Professional Type</label>
-                    <select className="select-profess" >
-                  <option value="Youngerleit">Keriah</option>
-                  <option value="Sessions">Therapy</option>
-                  <option value="Sessions">Other</option>
+              <Grid md={6}  >
+              <TextField
+                    id="outlined"
+                    value={currency1}
+                    select
+                    label="Professional Type"
+                    variant="outlined"
+                    size="small"
+                    onChange={(event) => setCurrency1(event.target.value)}
+                    style={{ width: '100%',marginTop:20}}
+                  >
+                    <MenuItem value="Keriah" selected>Keriah</MenuItem>
+                    <MenuItem value="Therapy">Therapy </MenuItem>
+                    <MenuItem value="Other">Other </MenuItem>
 
-                </select>
+                  </TextField>
+                  </Grid>
+                  <Grid md={6}>
+                  <TextField
+                    id="outlined"
+                    value={currency2}
+                    select
+                    label="Schedule"
+                    variant="outlined"
+                    size="small"
+                    onChange={(event) => setCurrency2(event.target.value)}
+                    style={{ width: '100%',marginTop:20}}
+                  >
+                    <MenuItem value="Weekly" selected>Weekly</MenuItem>
+                    <MenuItem value="Monthly">Monthly </MenuItem>
+                    <MenuItem value="Yearly">Yearly </MenuItem>
 
-                  </Col>
-                  <Col md={6}>
-                    <label className="start-date">Schedule</label>
-                    <select className="select-profess" >
-                  <option value="Youngerleit">Weekly</option>
-                  <option value="Sessions">Monthly</option>
-                  <option value="Sessions">Custom</option>
+                  </TextField>
 
-                </select>
-
-                  </Col>
-
-              <Form>
-
+                  </Grid>
                 <div className="box-model">
                 </div>
+                <Grid container spacing={0} style={{ marginTop: 20 }}>
+                  <Grid md={6}>
+                    <TextField
+                      id="date"
+                      label="Start Date"
+                      defaultValue="2017-05-24"
+                      variant="outlined"
+                      size="small"
+                      type="date"
+                      style={{ width: '100%', }}
 
-                <Row>
-                  <Col md={6}>
-                    <label className="start-date">Start Date</label>
-                    <Form.Control type="date" placeholder="Start Date" className="input-model" />
+                    />
 
-                  </Col>
-                  <Col md={6}>
+                  </Grid>
+                  <Grid md={6}>
                     <p className="p-model-date1">Add End Date</p>
 
-                  </Col>
-                </Row>
-                <Row>               <Col md={6}>
-                  <label className="start-date">Time From</label>
+                  </Grid>
+                </Grid>
+                <Grid container spacing={0} style={{ marginTop: 20, }}>
+                  <Grid md={6}>
+                    <TextField
+                      id="time"
+                      label="Time From"
+                      type="time"
+                      defaultValue="07:30"
+                      variant="outlined"
+                      size="small"
+                      style={{ width: '100%', }}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      inputProps={{
+                        step: 300, // 5 min
+                      }}
+                    />
+                  </Grid>
+                  <Grid md={6}>
+                    <TextField
+                      id="time"
+                      label="Time To"
+                      defaultValue="05:30"
+                      variant="outlined"
+                      size="small"
+                      type="time"
+                      style={{ width: '96%', marginLeft: '4%' }}
 
-                  <Form.Control type="date" placeholder="Time From" className="input-model" />
-
-                </Col>
-                  <Col md={6}>
-                    <label className="start-date">Time To</label>
-
-                    <Form.Control type="date" placeholder="Time To" className="input-model" />
-
-                  </Col>
-                </Row>
-                <Form.Control
-                  className="input-model"
-                  as="textarea"
-                  placeholder="Leave a comment here"
-                  style={{ height: '70px' }}
-                />
-              </Form>
-
-
+                    />
+                  </Grid>
+                </Grid>
+                <FormControl variant="outlined" size="small" className={classes.formControl}>
+                  <label >Note</label>
+                  <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="" />
+                </FormControl>
             </div>
-          </Col>
-          <Col md={7}>
-            <h6 >Selected Professional</h6>
+          </Grid>
+          <Grid md={7}>
+            <h6 className="selected-prof">Selected Professional</h6>
             <div className="box-model">
-
             </div>
-        <button className="load-professional" >Load Result</button>
-            <div className="inner-box">
-              <h6 className="available" >Available Professionals:</h6>
+            <Button className="load-result-Professional">Load Result</Button>
+            <div className="inner-box-professional">
+            <h6 className="available" >Available Professionals:</h6>
 
+              </div>
+          </Grid>
+        </Grid>
+      </DialogContent>
+      <DialogActions style={{marginRight:10}}>
+            <Button className="load-result1" onClick={handleClose}>Cancel</Button>
+
+            <Button className="load-result"  onClick={handleClose}>
+                    Save
+                </Button>
+            </DialogActions>
+    </Dialog>
+
+{/*  */}
+<Dialog onClose={handleEdit} aria-labelledby="simple-dialog-title" open={edit} maxWidth="xs" fullWidth={true}>
+        <DialogContent>
+            <h6 >Edit professional</h6>
+
+            <div className="left-model-younger">
+            <div className="flex-model">
+                  <p className="p-chaim">Bucher: <span className="bold-model">Chaim Green</span></p>
+                  <TextField
+                    id="outlined"
+                    value={currency}
+                    select
+                    label="Status"
+                    variant="outlined"
+                    size="small"
+                    onChange={(event) => setCurrency(event.target.value)}
+                    style={{ width: '55%', marginLeft: 35, fontSize: 9 }}
+                  >
+                    <MenuItem value="Pending Professional">Pending Youngerman </MenuItem>
+                    <MenuItem value="Pending Financial ">Pending Financial </MenuItem>
+                    <MenuItem value="Active">Active </MenuItem>
+
+                  </TextField>
+                </div>
+              <p className="p-chaim">Professional: <span className="bold-model">Moshe Rosen</span></p>
+              <Grid md={6}  >
+              <TextField
+                    id="outlined"
+                    value={currency1}
+                    select
+                    label="Professional Type"
+                    variant="outlined"
+                    size="small"
+                    onChange={(event) => setCurrency1(event.target.value)}
+                    style={{ width: '100%',marginTop:20}}
+                  >
+                    <MenuItem value="Keriah" selected>Keriah</MenuItem>
+                    <MenuItem value="Therapy">Therapy </MenuItem>
+                    <MenuItem value="Other">Other </MenuItem>
+
+                  </TextField>
+                  </Grid>
+                  <Grid md={6}>
+                  <TextField
+                    id="outlined"
+                    value={currency2}
+                    select
+                    label="Schedule"
+                    variant="outlined"
+                    size="small"
+                    onChange={(event) => setCurrency2(event.target.value)}
+                    style={{ width: '100%',marginTop:20}}
+                  >
+                    <MenuItem value="Weekly" selected>Weekly</MenuItem>
+                    <MenuItem value="Monthly">Monthly </MenuItem>
+                    <MenuItem value="Yearly">Yearly </MenuItem>
+
+                  </TextField>
+
+                  </Grid>
+                <div className="box-model">
+                </div>
+                <Grid container spacing={0} style={{ marginTop: 20 }}>
+                  <Grid md={6}>
+                    <TextField
+                      id="date"
+                      label="Start Date"
+                      defaultValue="2017-05-24"
+                      variant="outlined"
+                      size="small"
+                      type="date"
+                      style={{ width: '100%', }}
+
+                    />
+
+                  </Grid>
+                  <Grid md={6}>
+                    <p className="p-model-date1">Add End Date</p>
+
+                  </Grid>
+                </Grid>
+                <Grid container spacing={0} style={{ marginTop: 20, }}>
+                  <Grid md={6}>
+                    <TextField
+                      id="time"
+                      label="Time From"
+                      type="time"
+                      defaultValue="07:30"
+                      variant="outlined"
+                      size="small"
+                      style={{ width: '100%', }}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      inputProps={{
+                        step: 300, // 5 min
+                      }}
+                    />
+                  </Grid>
+                  <Grid md={6}>
+                    <TextField
+                      id="time"
+                      label="Time To"
+                      defaultValue="05:30"
+                      variant="outlined"
+                      size="small"
+                      type="time"
+                      style={{ width: '96%', marginLeft: '4%' }}
+
+                    />
+                  </Grid>
+                </Grid>
+                <FormControl variant="outlined" size="small" className={classes.formControl}>
+                  <label >Note</label>
+                  <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="" />
+                </FormControl>
             </div>
-            <button className="load-result" onClick={handleClose}>
-              Save
-            </button>
-            <button className="load-result1" onClick={handleClose}>
-              Close
-            </button>
+ 
+      </DialogContent>
+      <DialogActions style={{marginRight:10}}>
+            <Button className="load-result1" onClick={handleEdit}>Cancel</Button>
 
-          </Col>
-        </Row>
-      </Modal.Body>
-      {/* <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
-      </Modal.Footer> */}
-    </Modal>
+            <Button className="load-result"  onClick={handleEdit}>
+                    Save
+                </Button>
+            </DialogActions>
+    </Dialog>
 
-    <Modal size="xs" show={edit} onHide={handleEdit} centered>
-
-<Modal.Body>
-
-      <h6 >Edit Youngerman</h6>
-
-      <div className="left-model-younger">
-        <div className="flex-model">
-          <p className="p-chaim">Bucher: <span className="bold-model">Chaim Green</span></p>
-          <select className="select-modell" >
-            <option value="Youngerleit">Pending Professional</option>
-            <option value="Sessions">Pending Financial</option>
-            <option value="Sessions">Active</option>
-
-          </select>
-        </div>
-        <p className="p-chaim">Professional: <span className="bold-model">Moshe Rosen</span></p>
-        <Col md={6}>
-              <label className="start-date">Professional Type</label>
-              <select className="select-modell" >
-            <option value="Youngerleit">Keriah</option>
-            <option value="Sessions">Therapy</option>
-            <option value="Sessions">Other</option>
-
-          </select>
-
-            </Col>
-            <Col md={6}>
-              <label className="start-date">Schedule</label>
-              <select className="select-modell" >
-            <option value="Youngerleit">Weekly</option>
-            <option value="Sessions">Monthly</option>
-            <option value="Sessions">Custom</option>
-
-          </select>
-
-            </Col>
-
-        <Form>
-
-          <div className="box-model">
-          </div>
-
-          <Row>
-            <Col md={6}>
-              <label className="start-date">Start Date</label>
-              <Form.Control type="date" placeholder="Start Date" className="input-model" />
-
-            </Col>
-            <Col md={6}>
-              <p className="p-model-date1">Add End Date</p>
-
-            </Col>
-          </Row>
-          <Row>               <Col md={6}>
-            <label className="start-date">Time From</label>
-
-            <Form.Control type="date" placeholder="Time From" className="input-model" />
-
-          </Col>
-            <Col md={6}>
-              <label className="start-date">Time To</label>
-
-              <Form.Control type="date" placeholder="Time To" className="input-model" />
-
-            </Col>
-          </Row>
-          <Form.Control
-            className="input-model"
-            as="textarea"
-            placeholder="Leave a comment here"
-            style={{ height: '70px' }}
-          />
-        </Form>
-
-
-      </div>
     
-      <button className="load-result" onClick={handleEdit}>
-        Save
-      </button>
-      <button className="load-result1" onClick={handleEdit}>
-        Close
-      </button>
-
-
-</Modal.Body>
-{/* <Modal.Footer>
-  <Button variant="secondary" onClick={handleClose}>
-    Close
-  </Button>
-  <Button variant="primary" onClick={handleClose}>
-    Save Changes
-  </Button>
-</Modal.Footer> */}
-</Modal>
 </>
   )
 }

@@ -101,9 +101,9 @@ export default function Appointment(props) {
                 </div>
             </DialogContent>
             <DialogActions>
-            <Button className="load-result1">Cancel</Button>
+            <Button className="load-result1" onClick={handleClose}>Cancel</Button>
 
-            <Button className="load-result">
+            <Button className="load-result"  onClick={handleClose}>
                     Save
                 </Button>
             </DialogActions>
