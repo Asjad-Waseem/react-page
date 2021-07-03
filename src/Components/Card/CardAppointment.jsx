@@ -14,6 +14,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Appointment from '../Modals/Appointment/Appointment'
 import DeleteModel from '../Modals/DeleteModel/DeleteModel'
+import Button from '@material-ui/core/Button';
 
 const ITEM_HEIGHT = 48;
 const StyledTableCell = withStyles((theme) => ({
@@ -88,7 +89,7 @@ export default function CustomizedTables() {
 
         <div className="Header-section">
           <p className="Yungerleit">Appointments</p>
-          <p className="cursor-p" onClick={() => setshow(true)} ><span className="font-plus">+</span> Add</p>
+          <Button className="cursor-p" onClick={() => setshow(true)}>+ Add</Button>
         </div>
         <Table aria-label="simple table">
           <TableHead className={classes.table}>

@@ -59,8 +59,8 @@ margin-right: 20px;
      font-size: 19px;
  }
  .cursor-p{
-     cursor: pointer;
-     padding-right: 15px;
+
+     text-transform: capitalize !important;
  }
  .right-float{
      float: right !important;

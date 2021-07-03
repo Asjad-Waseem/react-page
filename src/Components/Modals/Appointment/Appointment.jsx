@@ -24,7 +24,7 @@ export default function Appointment(props) {
     return (
         <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={show} >
             <DialogContent>
-                <h6>Add Appointment</h6>
+                <h4>Add Appointment</h4>
                 <div >
                     <div className="flex-model">
                         <p className="p-chaim">Bucher: <span className="bold-model">Chaim Green</span></p>
